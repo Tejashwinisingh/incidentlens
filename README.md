@@ -13,6 +13,10 @@ It helps users explore relationships between incidents, services, applications, 
 **IncidentLens:**  
 https://incidentlens-5tdnchtwcunubq9ykojazm.streamlit.app/
 
+## 🎥 Demo Video
+
+[Watch the IncidentLens Demo](https://drive.google.com/file/d/1utj2JYRUUETfi4pYO83UP2EVqQ9qSyi4/view?usp=drive_link)
+
 ---
 
 ## 🚀 Overview
