@@ -8,6 +8,13 @@ It helps users explore relationships between incidents, services, applications, 
 
 ---
 
+## 🌐 Live Demo
+
+**IncidentLens:**  
+https://incidentlens-5tdnchtwcunubq9ykojazm.streamlit.app/
+
+---
+
 ## 🚀 Overview
 
 In traditional IT incident management, an incident is often treated as an individual ticket.
@@ -35,6 +42,10 @@ Provides an overview of:
 - Total services
 - Total changes
 
+The dashboard provides a quick view of the current incident landscape.
+
+---
+
 ### 2. Incident Explorer
 
 Users can select an IT incident and view:
@@ -45,23 +56,52 @@ Users can select an IT incident and view:
 - Status
 - Description
 
-### 3. Relationship Network
-
-Displays connected entities around an incident, including:
-
-- Services
-- Changes
-- Related incidents
-
-### 4. Related Incident Discovery
-
-Finds other incidents connected through a shared service.
-
 Example:
 
 ```text
 INC-1042
-    ↓ AFFECTS
-Payment Service
-    ↑ AFFECTS
-INC-1041
+Payment Service Unavailable
+Severity: HIGH
+Status: RESOLVED
+
+⚙️ Local Setup
+1. Create a CognoDB Cloud Instance
+Create a CognoDB instance and obtain the Bolt connection URI and database credentials.
+
+2. Configure Environment Variables
+Create a local .env or configure the variables in your environment:
+COGNODB_URI=bolt+s://<your-instance>.databases.cognodb.com
+COGNODB_USER=cognodb
+COGNODB_PASSWORD=<your-password>
+Do not commit .env or database credentials to GitHub.
+
+3. Create Python Virtual Environment
+On Windows:
+python -m venv .venv
+Activate it
+.venv\Scripts\activate
+
+4. Install Dependencies
+pip install -r requirements.txt
+
+5. Load Seed Data
+Open:
+database/seed.cypher
+Run the query in CognoDB Browser.
+
+6. Start the Application
+streamlit run app.py
+The application will be available at:
+http://localhost:8501
+
+🔐 Security
+Database credentials are read from environment variables.
+Sensitive credentials are not stored in the source code.
+
+The repository should never contain:
+.env
+or actual database passwords.
+
+A configuration template is provided through:
+.env.example
+For the hosted deployment, CognoDB credentials are configured using Streamlit Secrets.
